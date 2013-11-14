@@ -148,6 +148,11 @@ PRODUCT_PACKAGES += \
     AudioFX \
     LockClock
 
+# Screen Recorder
+PRODUCT_PACKAGES += \
+    libscreenrecorder \
+    ScreenRecorder
+
 # CM Platform Library
 PRODUCT_PACKAGES += \
     org.cyanogenmod.platform-res \
