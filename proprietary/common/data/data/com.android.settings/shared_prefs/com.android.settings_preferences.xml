@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<map>
+    <boolean name="sound_effects" value="true" />
+    <boolean name="force_hw_ui" value="true" />
+    <boolean name="enable_adb" value="true" />
+</map>

@@ -1,0 +1,7 @@
+#!/system/xbin/bash
+f="/sys/devices/system/cpu/cpu0/cpufreq"
+
+for F in $f/cpuinfo* $f/scaling* $f/screen*; do
+    echo "$(echo $F | sed 's/.*\///g') =
+$(cat $F | sed 's/^.*/\t\t&/g' | sed 's/[a-zA-Z0-9]* /&\n\t\t/g')"
+done

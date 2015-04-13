@@ -1,0 +1,9 @@
+#!/system/xbin/bash
+zombie=$(pgrep -lf "Repairing interactive")
+if [ $zombie ]; then kill $zombie; fi
+bash -c 'ticks=0;
+while [ ! -d /sys/devices/system/cpu/cpufreq/interactive ] && [ $ticks -lt 10 ]; do sleep 1; ticks=$(expr $ticks + 1); done;
+[ $ticks -eq 10 ] && logwrapper echo "False alarm... you should switch to a good governor... like interactive... noob" && exit 0;
+logwrapper echo "NUKE RULES! -- Repairing interactive governor permissions";
+chown system:system /sys/devices/system/cpu/cpufreq/interactive/*;
+chmod 0666 /sys/devices/system/cpu/cpufreq/interactive/*' &

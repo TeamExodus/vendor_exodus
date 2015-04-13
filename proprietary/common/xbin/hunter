@@ -1,0 +1,139 @@
+#!/system/xbin/bash
+# DHO
+# Menu structure based on exodus script
+
+menu()
+{
+    sectionheader "Main Menu"
+    echo "0) Activate Superuser Terminal"
+    echo "1) Remove Setup Wizard and Provision"
+    echo "2) Remove Email"
+    echo "3) Remove Live Wallpapers"
+    echo "4) Remove Stock Launcher"
+    echo "9) Remove All"
+    echo "Q) Quit"
+    read -p "Enter option: " opt
+    choice=""
+    case $opt in
+      0) choice="su";;
+      1) choice="wp";;
+      2) choice="em";;
+      3) choice="lw";;
+      4) choice="sl";;
+      9) choice="all";;
+      [Qq]) echo "Goodbye."; echo; exit 0;;
+      *) echo "Invalid option" && sleep 1;;
+    esac
+if [ ! -z $choice ]; then
+menu_$choice
+    fi
+menu
+}
+
+menu_su()
+{
+    echo "Invoking Superuser"
+    echo "I am going to type $ su"
+    echo "You may need to tap Allow"
+    wait 3
+    su -c "hunter"
+    return 0
+}
+
+menu_wp()
+{
+    sysrw
+    rm /system/app/Provision.apk
+    rm /system/app/SetupWizard.apk
+    echo "Removing Setup Wizard and Provision"
+    sysro
+    return 0
+}
+
+menu_em()
+{
+    sysrw
+    rm /system/app/Email.apk
+    echo "Removing Email"
+    sysro
+    return 0
+}
+
+menu_lw()
+{
+    sysrw
+    rm /system/app/BasicDreams.apk
+    rm /system/app/Galaxy4.apk
+    rm /system/app/HoloSpiralWallpaper.apk
+    rm /system/app/LiveWallpapers.apk
+    rm /system/app/MagicSmokeWallpapers.apk
+    rm /system/app/NoiseField.apk
+    rm /system/app/PhaseBeam.apk
+    rm /system/app/Galaxy4.apk
+    rm /system/app/PhotoTable.apk
+    echo "Removing Live Wallpapers"
+    sysro
+    return 0
+}
+
+menu_sl()
+{
+    sysrw
+    rm /system/app/Launcher2.apk
+    echo "Removing Stock Launcher"
+    sysro
+    return 0
+}
+
+menu_all()
+{
+    sysrw
+    rm /system/app/Provision.apk
+    rm /system/app/SetupWizard.apk
+    rm /system/app/Email.apk
+    rm /system/app/BasicDreams.apk
+    rm /system/app/Galaxy4.apk
+    rm /system/app/HoloSpiralWallpaper.apk
+    rm /system/app/LiveWallpapers.apk
+    rm /system/app/MagicSmokeWallpapers.apk
+    rm /system/app/NoiseField.apk
+    rm /system/app/PhaseBeam.apk
+    rm /system/app/Galaxy4.apk
+    rm /system/app/PhotoTable.apk
+    rm /system/app/Launcher2.apk
+    echo "Removing All Unwanted Apps"
+    sysro
+    return 0
+}
+
+
+sectionheader()
+{
+    total=$(echo " Hunter - Seeker " | wc -c)
+    title=$(echo "$1" | wc -c)
+    diff=$(expr $total - $title)
+    lpadc=$(expr $diff / 2)
+    rpadc=$(expr $diff - $lpadc)
+    lpad=""
+    rpad=""
+    while [ $lpadc -gt 0 ]; do lpad="$lpad "; lpadc=$(expr $lpadc - 1); done
+while [ $rpadc -gt 0 ]; do rpad="$rpad "; rpadc=$(expr $rpadc - 1); done
+echo
+echo
+    echo "+++++++++++++++++++++++++++"
+    echo "+      Hunter - Seeker    +"
+    echo "+   $lpad $1 $rpad      +"
+    echo "+++++++++++++++++++++++++++"
+}
+
+amiroot()
+{
+    ret=`whoami 2>&1`
+    [ "$ret" = "root" ] && return 0 || [ `echo $ret | egrep "uid 0" | wc -l` -gt 0 ] && return 0 || return 1
+}
+
+if [ ! amiroot ]; then
+    echo "You must run this as root."
+else
+    menu
+fi

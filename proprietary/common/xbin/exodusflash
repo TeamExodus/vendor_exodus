@@ -1,0 +1,39 @@
+#!/system/xbin/sh
+
+ZIP_LIST=
+
+if [ $# -eq 0 ]; then     # no args == flash /sdcard/exodus_rom.zip, /sdcard/exodus_gapps.zip (if it exists), and any zip in /sdcard/exodus_addons
+    if [ ! -e /sdcard/exodus_rom.zip ]; then
+        echo "You must copy the ROM zip you want to flash to /sdcard/exodus_rom.zip"
+        exit 1
+    else
+        ZIP_LIST="$ZIPLIST /sdcard/exodus_rom.zip"
+    fi
+
+    if [ ! -e /sdcard/exodus_gapps.zip ]; then
+        echo "You may copy a gapps zip you want to always flash to /sdcard/exodus_gapps.zip"
+    else
+        ZIP_LIST="$ZIP_LIST /sdcard/exodus_gapps.zip"
+    fi
+
+    if  [ -d /sdcard/exodus_addons ]; then
+        for C in $(ls /sdcard/exodus_addons/ | grep -i .zip)
+        do
+            ZIP_LIST="$ZIP_LIST /sdcard/exodus_addons/$C"
+        done
+    else
+        echo "If you would like to install more zips than just the rom and gapps, you can do so automagically by placing them in /sdcard/exodus_addons/"
+        mkdir -p /sdcard/exodus_addons
+    fi
+else        # args == flash argument zips in specified order - GOD HELP YOU IF THERE ARE SPACES IN THIS. MUAHAHAHA
+    ZIP_LIST="$*"
+fi
+echo "generating auto-flash script"
+mkdir -p /cache/recovery || exit 1
+echo -n > /cache/recovery/openrecoveryscript || exit 1
+for C in $ZIP_LIST; do
+    echo "install $C" >> /cache/recovery/openrecoveryscript || exit 1
+done
+echo "THIS IS HAPPENING. COME TO TERMS WITH IT!"
+sleep 1
+reboot recovery

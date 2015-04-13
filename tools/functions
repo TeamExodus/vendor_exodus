@@ -1,0 +1,37 @@
+#!/bin/bash
+# Common functions for exodus otatools
+#
+# cdesai
+
+if [ ! "$BUILD_WITH_COLORS" = "0" ];
+then
+CL_RED="\033[31m"
+CL_GRN="\033[32m"
+CL_YLW="\033[33m"
+CL_BLU="\033[34m"
+CL_MAG="\033[35m"
+CL_CYN="\033[36m"
+CL_RST="\033[0m"
+fi
+
+export OUT_TARGET_HOST=`uname -a | grep Darwin`
+if [ -z "$OUT_TARGET_HOST" ]
+then
+   export OUT_TARGET_HOST=linux-x86
+   export MD5=md5sum
+   procs=`grep 'processor' /proc/cpuinfo|wc -l`
+   halfprocs=`expr $procs / 2`
+   export XARGS="xargs --max-args=1 --max-procs $procs"
+   export HALFXARGS="xargs --max-args=1 --max-procs $halfprocs"
+   export SED=sed
+else
+   export OUT_TARGET_HOST=darwin-x86
+   export MD5=md5
+   procs=`sysctl hw.ncpu | awk '{print $2}'`
+   halfprocs=`expr $procs / 2`
+   export XARGS="xargs -n 1 -P $procs"
+   export HALFXARGS="xargs -n 1 -P $halfprocs"
+   export SED=gsed
+fi
+
+export OPTICHARGER=$ANDROID_BUILD_TOP/vendor/exodus/tools/opticharger

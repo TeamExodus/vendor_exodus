@@ -1,0 +1,10 @@
+#!/bin/bash
+export ANDROID_BUILD_TOP=$ANDROID_BUILD_TOP
+. $ANDROID_BUILD_TOP/vendor/exodus/tools/functions
+
+pushd $1
+
+find ./ -name \*.apk | $HALFXARGS schedtool -B -n 1 -e ionice -n 1 $OPTICHARGER
+
+popd
+exit 0

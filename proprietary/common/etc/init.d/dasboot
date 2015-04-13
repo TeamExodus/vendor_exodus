@@ -1,0 +1,9 @@
+#!/bin/sh
+echo "HOLY SHIT!" > /data/ITBOOTSITBOOTSITBOOTS
+logcat > /data/logcat.log &
+(
+  while [ 1 ]; do
+     sync;
+     sleep 1;
+  done
+) &

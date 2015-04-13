@@ -1,0 +1,113 @@
+#!/bin/bash
+#
+# Squish a exodus otapackage for distribution
+# credit for original version: CM
+#
+EXODUS_PRODUCT="exodus"
+
+export ANDROID_BUILD_TOP=$ANDROID_BUILD_TOP
+
+. $ANDROID_BUILD_TOP/vendor/exodus/tools/functions
+
+if [ -z "$OUT" -o ! -d "$OUT" ]; then
+    echo -e $CL_RED"ERROR: $0 only works with a full build environment. $OUT should exist."$CL_RST
+    exit 1
+fi
+
+OTAPACKAGE=$OTA_PACKAGE_PATH
+
+if [ ! -f "$OTAPACKAGE" ]; then
+    echo -e $CL_RED"$OTAPACKAGE doesn't exist!"$CL_RST;
+    exit 1
+fi
+
+QUIET=-q
+
+REPACK=$OUT/repack.d
+printf "Sanitizing environment..."
+rm -rf $REPACK
+mkdir -p $REPACK
+echo
+
+# Unpack the otapackage and opticharge all apks
+mkdir $REPACK/ota
+(
+cd $REPACK/ota
+printf "Unpacking $OTAPACKAGE..."
+unzip $QUIET $OTAPACKAGE
+ln -s  $OUT/data $REPACK/ota/data
+echo
+
+# Move all apks to the same directory so xargs can
+# use also with framework-res.apk. This allow process
+# framework-res.apk in parallel with other apks
+mkdir -p $REPACK/parallel
+cd $REPACK/parallel
+find $REPACK/ota/system -name '*.apk' | while read APK; do
+    ln -s $APK .
+done
+
+echo -e $CL_YLW "  Hey squisher: how about not wasting time optimizing pre-optimized images. Kthnx."
+# this was a huge waste of time
+#find ./ -name \*.apk | $HALFXARGS schedtool -B -n 1 -e ionice -n 1 $OPTICHARGER
+
+# Return to directory
+cd $REPACK/ota
+rm -rf $REPACK/parallel
+)
+
+# move utilities
+[ -e $OUT/utilities ] && cp $OUT/utilities/* $REPACK/ota/system/xbin/
+
+# Determine what to name the new signed package
+MODVERSION=`sed -n -e'/ro\.modversion/s/^.*=//p' $OUT/system/build.prop`
+OUTVERSION="exodus-$TARGET_PRODUCT"_"$MODVERSION"
+OUTFILE=$OUT/$OUTVERSION.zip
+
+# Pack it up and sign
+printf "Zipping package..."
+( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
+echo
+printf "Signing package..."
+OUTBASE=$(dirname $(dirname $(dirname $OUT)))
+SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
+java -Xmx2048m \
+    -jar $OUTBASE/host/$OUT_TARGET_HOST/framework/signapk.jar \
+    -w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
+    $REPACK/update.zip $OUTFILE
+echo
+printf "Cleaning up..."
+rm -rf $REPACK
+echo
+
+# Create a md5 checksum image of the repacked package
+(
+echo -e ""
+echo -e ""
+echo -e $CL_GRN"================  "$CL_RST OTA package information $CL_GRN"  ================"$CL_RST
+echo -e ""
+echo -e $CL_BLU"Product name:"$CL_RST $OTAPACKAGE
+
+img=`basename $OUTFILE`
+cd `dirname $OUTFILE`
+STRING=$OTA_PACKAGE_PATH
+OTASIZE=`ls -lah $STRING | awk '{ print $5}' `
+echo -e $CL_BLU"Package Size: "$CL_YLW "$OTASIZE" $CL_RST
+echo -e $CL_BLU"Target Location: " $CL_RST
+echo -e $CL_YLW"$OTA_PACKAGE_PATH" $CL_RST
+echo "" 
+
+$MD5 $img >$img.md5
+ZIPSIZE=`ls -lah $OUTFILE | awk '{ print $5}' `
+echo -e $CL_GRN"================"$CL_RST $EXODUS_PRODUCT-$TARGET_BUILD_VARIANT: $CL_RED"completed"$CL_RST $CL_GRN"================"$CL_RST
+echo ""
+echo -e $CL_BLU"Product name:"$CL_RST $OUTVERSION.zip
+echo -e $CL_BLU"Package Size: "$CL_YLW"$ZIPSIZE     "
+echo -e $CL_BLU"md5:"$CL_RST $CL_YLW" $(cat $img.md5 | awk '{ print $1 }')"$CL_RST
+echo -e $CL_BLU"Target location:"$CL_RST
+echo -e $CL_YLW $OUTFILE $CL_RST
+echo ""
+echo ""
+)
+
+exit 0

@@ -1,0 +1,69 @@
+#!/system/xbin/bash
+: '
+ ============ Copyright (C) 2010 Jared Rummler (JRummy16) ============
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+ =====================================================================
+'
+
+# With scripts from PrimeDirective and Sonicxml's cron.jobs, and bawss sauce from Nuclearmistake
+
+# crond has "/bin/sh" hardcoded
+mount -o remount,rw rootfs /
+if busybox [ ! -L /bin ]; then
+	ln -s /system/bin/ /bin
+fi
+mount -o remount,ro rootfs /
+
+# set timezone (if you're not between -0500 and -0800 you get PST)
+# todo - support other timezones
+timezone=`date +%z`
+if busybox [ $timezone = "-0800" ]; then
+  TZ=PST8PDT
+elif busybox [ $timezone = "-0700" ]; then
+  TZ=MST7MDT
+elif busybox [ $timezone = "-0600" ]; then
+  TZ=CST6CDT
+elif busybox [ $timezone = "-0500" ]; then
+  TZ=EST5EDT
+else
+  TZ=PST8PDT
+fi
+export TZ
+
+# rebuild crontab if it got pwned somehow
+if busybox [ ! -d /cache/cron ]; then
+  busybox mkdir -p /cache/cron
+fi
+
+echo '# Prime Directive, Nuclearmistake, Sonicxml
+
+# Put shell scripts in these folders, and they will run at the named interval... like a bawss
+*/5 * * * * /system/bin/cronlogger /system/etc/cron/cron.minutely
+01 * * * * /system/bin/cronlogger /system/etc/cron/cron.hourly
+02 4 * * * /system/bin/cronlogger /system/etc/cron/cron.daily
+03 4 * * 0 /system/bin/cronlogger /system/etc/cron/cron.weekly' > /cache/cron/root
+
+
+
+if busybox [ ! -d /system/etc/cron/cron.hourly ] || [ ! -d /system/etc/cron/cron.daily ] || [ ! -d /system/etc/cron/cron.weekly ]; then
+    sysrw
+    busybox mkdir -p /system/etc/cron/cron.minutely
+    busybox mkdir -p /system/etc/cron/cron.hourly
+    busybox mkdir -p /system/etc/cron/cron.daily
+    busybox mkdir -p /system/etc/cron/cron.weekly
+    sysro
+fi
+crond -c /cache/cron

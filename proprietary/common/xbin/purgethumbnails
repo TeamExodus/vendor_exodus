@@ -1,0 +1,15 @@
+#!/system/xbin/bash
+
+for x in `find /storage/sdcard*/ -type d -name .thumbnails`; do
+rm -Rf $x;
+done;
+for x in `ps | grep -v grep | grep gallery | sed 's/^[a-zA-Z0-9_]*[ \t]*//g' | sed 's/ .*//g'`; do
+echo "Trying to kill `ps | grep $x`";
+kill $x;
+done;
+for x in `find /storage/sdcard*/ -type d -name '*gallery*'`; do
+for y in `find $x -type d -name cache`; do
+  rm -Rf $y;
+done;
+done;
+echo "GALLERY THUMBNAILS PURGED";

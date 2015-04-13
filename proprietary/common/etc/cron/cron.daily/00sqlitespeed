@@ -1,0 +1,11 @@
+#!/system/bin/sh
+
+for f in "/data" "/dbdata" "/datadata" "/sdcard"; do
+    if [ -e "$f" ]; then
+        for i in `busybox find "$f" -iname "*.db"`; do
+            echo "Turning $i's amp up to 11."
+            sqlite3 $i 'VACUUM;'
+            sqlite3 $i 'REINDEX;'
+        done
+    fi
+done

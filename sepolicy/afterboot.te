@@ -1,0 +1,11 @@
+type afterboot, domain;
+type afterboot_exec, exec_type, file_type;
+
+init_daemon_domain(afterboot)
+
+#============= afterboot ==============
+allow afterboot system_data_file:file { rw_file_perms };
+allow afterboot devpts:file { rw_file_perms };
+allow afterboot shell_exec:file { rx_file_perms };
+allow afterboot system_file:file { rx_file_perms };
+allow afterboot self:process setcurrent;

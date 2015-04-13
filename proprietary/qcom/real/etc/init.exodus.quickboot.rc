@@ -1,0 +1,10 @@
+# /init.vanir.quickboot.rc
+# required services and triggers for Qualcomm's QuickBoot
+
+service qbcharger /charger -m 1
+
+on property:sys.qbcharger.enable=true
+    start qbcharger
+
+on property:sys.qbcharger.enable=false
+    stop qbcharger

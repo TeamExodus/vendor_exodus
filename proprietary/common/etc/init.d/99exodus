@@ -1,0 +1,4 @@
+#!/system/bin/sh
+which exodustweakapply && logwrapper bash -c "exodustweakapply
+echo \"DONE\""
+exit 0

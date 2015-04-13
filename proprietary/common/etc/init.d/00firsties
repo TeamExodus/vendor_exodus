@@ -1,0 +1,14 @@
+#!/system/bin/sh
+
+# Make perms all loosey-goosey
+[ -d /sys/devices/system/cpu/cpufreq/interactive ] && vanirinteractivegovernorgovernor
+
+# ICUP FUNI CULURSZ
+[ -e /sys/class/misc/colorcontrol/v1_offset ] && chown system.system /sys/class/misc/colorcontrol/v1_offset && chmod 0666 /sys/class/misc/colorcontrol/v1_offset
+[ -e /sys/class/misc/colorcontrol/multiplier ] && chown system.system /sys/class/misc/colorcontrol/multiplier && chmod 0666 /sys/class/misc/colorcontrol/multiplier
+[ -e /sys/devices/platform/omapdss/manager0/gamma ] && chown system.system /sys/devices/platform/omapdss/manager0/gamma && chmod 0666 /sys/devices/platform/omapdss/manager0/gamma
+
+# Expand kernel perms
+[ -e /dev/cpuctl/apps/cpu.notify_on_migrate ] && chown system.system /dev/cpuctl/apps/cpu.notify_on_migrate && chmod 0666 /dev/cpuctl/apps/cpu.notify_on_migrate
+
+exit 0
