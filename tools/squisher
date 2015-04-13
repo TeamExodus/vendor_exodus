@@ -61,7 +61,7 @@ rm -rf $REPACK/parallel
 
 # Determine what to name the new signed package
 MODVERSION=`sed -n -e'/ro\.modversion/s/^.*=//p' $OUT/system/build.prop`
-OUTVERSION="exodus-$TARGET_PRODUCT"_"$MODVERSION"
+OUTVERSION="$TARGET_PRODUCT"_"$MODVERSION"
 OUTFILE=$OUT/$OUTVERSION.zip
 
 # Pack it up and sign
