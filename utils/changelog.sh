@@ -3,6 +3,10 @@
 # Exports
 
 export Changelog=Changelog.txt
+export outpath=$1
+if [ -z "$outpath" ]; then
+    export outpath=$OUT/$Changelog
+fi
 
 if [ -f $Changelog ];
 then
@@ -30,5 +34,5 @@ done
 
 sed -i 's/project/   */g' $Changelog
 
-cp $Changelog $OUT/
+cp $Changelog $outpath
 rm $Changelog
