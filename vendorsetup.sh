@@ -1,4 +1,9 @@
-for combo in $(curl -s https://raw.githubusercontent.com/TeamExodus/exodus-devices/EXODUS-5.1/exodus-build-targets | sed -e 's/#.*$//' | grep exodus-5.1 | awk {'print $1'})
+while read combo
 do
-    add_lunch_combo $combo
-done
+        echo -e "combo='${combo}'" >null
+        if [[ "$combo" =~ \#.* ]];then
+           echo $combo >null
+        else
+            add_lunch_combo $combo
+        fi
+done <vendor/exodus/devices/exodus-build-targets
