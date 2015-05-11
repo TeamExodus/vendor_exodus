@@ -9,15 +9,8 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/exodus/overlay/dictionaries
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
     LiveWallpapers \
     LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam \
-    VisualizationWallpapers \
-    PhotoTable \
     SoundRecorder \
     PhotoPhase
 
