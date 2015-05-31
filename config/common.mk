@@ -199,6 +199,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     rsync
 
+# HFM Files
+PRODUCT_COPY_FILES += \
+    vendor/exodus/adblocker/hosts.alt:system/etc/hosts.alt \
+    vendor/exodus/adblocker/hosts.og:system/etc/hosts.og
+
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
     libstagefright_soft_ffmpegadec \
