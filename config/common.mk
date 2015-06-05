@@ -130,7 +130,6 @@ include vendor/exodus/config/themes_common.mk
 # Required packages
 PRODUCT_PACKAGES += \
     Development \
-    LatinIME \
     BluetoothExt \
     Profiles
 
