@@ -15,10 +15,10 @@
     <seinfo value="release" />
   </signer>
 
-  <!-- CMUpdater -->
+  <!-- ExodusUpdater -->
   <signer signature="@RELEASE" >
-    <package name="com.cyanogenmod.updater" >
-      <seinfo value="cmupdater" />
+    <package name="com.exodus.updater" >
+      <seinfo value="exodusupdater" />
     </package>
   </signer>
 </policy>
