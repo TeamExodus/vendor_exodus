@@ -44,6 +44,13 @@ if [ -d $TARGET_DIR ]; then
     cp $TARGET_DIR/system/lib/libwebviewchromium.so $PREBUILT_DIR/lib/libwebviewchromium.so
     cp $TARGET_DIR/system/lib/libwebviewchromium_plat_support.so $PREBUILT_DIR/lib/libwebviewchromium_plat_support.so
     cp $TARGET_DIR/system/lib/libwebviewchromium_loader.so $PREBUILT_DIR/lib/libwebviewchromium_loader.so
+    if [ -d $TARGET_DIR/system/lib64 ]; then
+        mkdir -p $PREBUILT_DIR/lib64
+        #Copy 64 bit libs
+        cp $TARGET_DIR/system/lib64/libwebviewchromium.so $PREBUILT_DIR/lib64/libwebviewchromium.so
+        cp $TARGET_DIR/system/lib64/libwebviewchromium_plat_support.so $PREBUILT_DIR/lib64/libwebviewchromium_plat_support.so
+        cp $TARGET_DIR/system/lib64/libwebviewchromium_loader.so $PREBUILT_DIR/lib64/libwebviewchromium_loader.so        
+    fi
 else
     echo "Please ensure that you have ran a full build prior to running this script!"
     return 1;
