@@ -29,6 +29,6 @@ $(shell mkdir -p $(OUT_DIR)/target/product/__DEVICE__/system/app/webview/lib/arm
 $(shell cp -r \$(LOCAL_PATH)/app/webview/lib/arm/libwebviewchromium.so $(OUT_DIR)/target/product/__DEVICE__/system/app/webview/lib/arm/libwebviewchromium.so)
 
 ifeq ($(TARGET_SUPPORTS_64_BIT_APPS),true)
-    $(shell mkdir -p $(OUT_DIR)/target/product/tomato/system/app/webview/lib/arm64/)
-    $(shell cp -r \$(LOCAL_PATH)/app/webview/lib/arm64/libwebviewchromium.so $(OUT_DIR)/target/product/tomato/system/app/webview/lib/arm64/libwebviewchromium.so)
+    $(shell mkdir -p $(OUT_DIR)/target/product/__DEVICE__/system/app/webview/lib/arm64/)
+    $(shell cp -r \$(LOCAL_PATH)/app/webview/lib/arm64/libwebviewchromium.so $(OUT_DIR)/target/product/__DEVICE__/system/app/webview/lib/arm64/libwebviewchromium.so)
 endif
