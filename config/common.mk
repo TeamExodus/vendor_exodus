@@ -340,7 +340,8 @@ ifndef CM_PLATFORM_SDK_VERSION
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.display.version=$(CM_DISPLAY_VERSION)
+  ro.cm.display.version=$(CM_DISPLAY_VERSION) \
+  ro.exodus.display.version=$(PLATFORM_RELEASE_VERSION)
 
 # CyanogenMod Platform SDK Version
 PRODUCT_PROPERTY_OVERRIDES += \
