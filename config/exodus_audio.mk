@@ -9,9 +9,9 @@ UI_PATH := vendor/exodus/prebuilt/common/media/audio/ui
 
 #Defaults
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.ringtone=CyanTone.ogg \
-    ro.config.notification_sound=CyanMessage.ogg \
-    ro.config.alarm_alert=CyanAlarm.ogg
+	ro.config.ringtone=CyanTone.ogg \
+	ro.config.notification_sound=CyanMessage.ogg \
+	ro.config.alarm_alert=CyanAlarm.ogg
 
 # Alarms
 PRODUCT_COPY_FILES += \
