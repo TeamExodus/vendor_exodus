@@ -135,7 +135,6 @@ PRODUCT_PACKAGES += \
 
 # Optional packages
 PRODUCT_PACKAGES += \
-    ExodusUpdater \
     VoicePlus \
     Basic \
     libemoji \
