@@ -15,4 +15,10 @@
     <seinfo value="release" />
   </signer>
 
+  <!-- OpenDelta -->
+  <signer signature="@RELEASE" >
+    <package name="eu.chainfire.opendelta" >
+      <seinfo value="opendelta" />
+    </package>
+  </signer>
 </policy>
