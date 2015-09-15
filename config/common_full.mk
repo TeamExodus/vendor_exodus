@@ -10,7 +10,8 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     SoundRecorder \
     PhotoPhase \
-    CMSettingsProvider
+    CMSettingsProvider \
+    CMResolver
 
 # Extra tools in CM
 PRODUCT_PACKAGES += \
