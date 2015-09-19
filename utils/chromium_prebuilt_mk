@@ -10,7 +10,7 @@ ifeq (,$(strip $(OUT_DIR)))
     endif
 endif
 
-LOCAL_PATH := prebuilts/chromium/__DEVICE__/
+LOCAL_PATH := prebuilts/chromium/__DEVICE__
 
 PRODUCT_COPY_FILES += \
                     $(LOCAL_PATH)/app/webview/webview.apk:system/app/webview/webview.apk \
@@ -20,11 +20,11 @@ PRODUCT_COPY_FILES += \
 
 ifeq ($(TARGET_SUPPORTS_64_BIT_APPS),true)
     PRODUCT_COPY_FILES += \
-        \$(LOCAL_PATH)/lib64/libwebviewchromium.so:system/lib64/libwebviewchromium.so \
-        \$(LOCAL_PATH)/lib64/libwebviewchromium_plat_support.so:system/lib64/libwebviewchromium_plat_support.so \
-        \$(LOCAL_PATH)/lib64/libwebviewchromium_loader.so:system/lib64/libwebviewchromium_loader.so
+        $(LOCAL_PATH)/lib64/libwebviewchromium.so:system/lib64/libwebviewchromium.so \
+        $(LOCAL_PATH)/lib64/libwebviewchromium_plat_support.so:system/lib64/libwebviewchromium_plat_support.so \
+        $(LOCAL_PATH)/lib64/libwebviewchromium_loader.so:system/lib64/libwebviewchromium_loader.so
 endif
-        
+
 $(shell mkdir -p $(OUT_DIR)/target/product/__DEVICE__/system/app/webview/lib/arm/)
 $(shell cp -r \$(LOCAL_PATH)/app/webview/lib/arm/libwebviewchromium.so $(OUT_DIR)/target/product/__DEVICE__/system/app/webview/lib/arm/libwebviewchromium.so)
 
