@@ -147,8 +147,7 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     Trebuchet \
     AudioFX \
-    LockClock \
-    UnifiedEmail
+    LockClock
 
 # Screen Recorder
 PRODUCT_PACKAGES += \
