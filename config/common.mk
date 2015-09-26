@@ -147,7 +147,8 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     Trebuchet \
     AudioFX \
-    LockClock
+    LockClock \
+    CMSettingsProvider
 
 # Screen Recorder
 PRODUCT_PACKAGES += \
