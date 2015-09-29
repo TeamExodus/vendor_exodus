@@ -2,7 +2,10 @@
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+PRODUCT_COPY_FILES += \
+	device/moto/shamu/audio_effects.conf:system/etc/audio_effects.conf
+
+$(call inherit-product, vendor/exodus/config/common_phone.mk)
 
 PRODUCT_NAME := exodus_shamu
 PRODUCT_DEVICE := shamu
@@ -16,12 +19,9 @@ TARGET_KERNEL_SOURCE := kernel/moto/shamu
 TARGET_KERNEL_CONFIG := shamu_defconfig
 TARGET_VARIANT_CONFIG := shamu_defconfig
 TARGET_SELINUX_CONFIG := shamu_defconfig
-
-
-$(call inherit-product, vendor/exodus/config/common_phone.mk)
-
+	
 $(call inherit-product, device/moto/shamu/device.mk)
-$(call inherit-product-if-exists, device/moto/shamu/vendorfiles/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/motorola/shamu/device-vendor.mk)
 
 PRODUCT_NAME := exodus_shamu
 

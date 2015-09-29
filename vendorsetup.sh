@@ -1,1 +1,2 @@
+add_lunch_combo exodus-shamu-user
 add_lunch_combo exodus_shamu-userdebug
