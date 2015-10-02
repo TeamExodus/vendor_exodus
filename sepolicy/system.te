@@ -1,0 +1,2 @@
+# System server dynamically loads some dexfiles
+allow system_server dex2oat_exec:file rx_file_perms;

@@ -1,0 +1,3 @@
+# Read /sys/kernel/debug/wakeup_sources.
+allow system_app debugfs:file r_file_perms;
+
