@@ -6,3 +6,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/exodus/prebuilt/etc/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
 
+# Thank you, please drive thru!
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.dun.override=0
