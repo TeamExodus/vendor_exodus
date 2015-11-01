@@ -4,7 +4,7 @@
 TARGET_SCREEN_HEIGHT := 2048
 TARGET_SCREEN_WIDTH := 1536
 
-# Inherit some common CM stuff.
+# Inherit some common stuff.
 $(call inherit-product, vendor/exodus/config/common_full_tablet_wifionly.mk)
 
 # Enhanced NFC
@@ -45,7 +45,7 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
 # CM Overlays
-DEVICE_PACKAGE_OVERLAYS += device/htc/flounder/overlay-cm
+#DEVICE_PACKAGE_OVERLAYS += device/htc/flounder/overlay-cm
 
 # Enable USB OTG (CAF commit to Settings)
 ADDITIONAL_BUILD_PROPERTIES += \
