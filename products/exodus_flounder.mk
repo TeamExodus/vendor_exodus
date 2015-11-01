@@ -1,14 +1,9 @@
-# CyanogenMod Specific Changes
-
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2048
 TARGET_SCREEN_WIDTH := 1536
 
 # Inherit some common stuff.
 $(call inherit-product, vendor/exodus/config/common_full_tablet_wifionly.mk)
-
-# Enhanced NFC
-$(call inherit-product, vendor/exodus/config/nfc_enhanced.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/htc/flounder/aosp_flounder.mk)
