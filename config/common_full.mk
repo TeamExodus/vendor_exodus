@@ -1,23 +1,14 @@
-# Inherit common CM stuff
-$(call inherit-product, vendor/cm/config/common.mk)
+# Inherit common Exodus stuff
+$(call inherit-product, vendor/exodus/config/common.mk)
 
-# Include CM audio files
-include vendor/cm/config/cm_audio.mk
+# Include Exodus audio files
+include vendor/exodus/config/exodus_audio.mk
 
-# Optional CM packages
+# Optional Exodus packages
 PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam \
-    PhotoTable \
-    SoundRecorder \
-    PhotoPhase
-
-# Extra tools in CM
+    SoundRecorder
+	
+# Extra tools in Exodus
 PRODUCT_PACKAGES += \
     7z \
     bash \

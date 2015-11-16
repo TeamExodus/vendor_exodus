@@ -1,4 +1,4 @@
-for combo in $(curl -s https://raw.githubusercontent.com/CyanogenMod/hudson/master/cm-build-targets | sed -e 's/#.*$//' | grep cm-13.0 | awk '{printf "cm_%s-%s\n", $1, $2}')
-do
-    add_lunch_combo $combo
-done
+add_lunch_combo exodus-shamu-user
+add_lunch_combo exodus_shamu-userdebug
+add_lunch_combo exodus_flounder-user
+add_lunch_combo exodus_flounder-userdebug
