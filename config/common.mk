@@ -217,7 +217,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/exodus/overlay/common
 
-PRODUCT_VERSION_MAJOR = 13
+PRODUCT_VERSION_MAJOR = 6
 PRODUCT_VERSION_MINOR = 0
 PRODUCT_VERSION_MAINTENANCE = 0-RC0
 
@@ -334,11 +334,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # CyanogenMod Platform SDK Version
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.exodus.build.version.plat.sdk=$(EXODUS_PLATFORM_SDK_VERSION)
+  ro.cm.build.version.plat.sdk=$(CM_PLATFORM_SDK_VERSION)
 
 # CyanogenMod Platform Internal
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.exodus.build.version.plat.rev=$(EXODUS_PLATFORM_REV)
+  ro.cm.build.version.plat.rev=$(CM_PLATFORM_REV)
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
