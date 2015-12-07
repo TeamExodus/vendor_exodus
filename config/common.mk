@@ -29,13 +29,10 @@ $(foreach size,$(bootanimation_sizes), $(call check_and_set_bootanimation,$(size
 PRODUCT_BOOTANIMATION := vendor/exodus/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip
 endif
 
-ifdef EXODUS_NIGHTLY
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=exodusnightly
-else
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.rommanager.developerid=exodus
-endif
+
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
