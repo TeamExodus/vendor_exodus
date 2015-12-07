@@ -110,9 +110,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/exodus/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
 
-# Theme engine
-include vendor/exodus/config/themes_common.mk
-
 # Required Exodus packages
 PRODUCT_PACKAGES += \
     Development \
