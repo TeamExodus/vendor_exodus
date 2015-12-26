@@ -327,8 +327,19 @@ else
 WITH_DEXPREOPT := false
 endif
 
-# Include LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/exodus/overlay/dictionaries
+# Overlays & Include LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += \
+	vendor/exodus/overlay/common \
+	vendor/exodus/overlay/dictionaries
+
+# Proprietary latinime libs needed for Keyboard swyping
+ifneq ($(filter arm64,$(TARGET_ARCH)),)
+PRODUCT_COPY_FILES += \
+    vendor/exodus/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+else
+PRODUCT_COPY_FILES += \
+    vendor/exodus/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.exodus.display.version=$(EXODUS_DISPLAY_VERSION)
