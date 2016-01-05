@@ -134,8 +134,7 @@ PRODUCT_PACKAGES += \
 # Custom Exodus packages
 PRODUCT_PACKAGES += \
     Launcher3 \
-    AudioFX \
-    LockClock
+    AudioFX
 
 # CM Platform Library
 #PRODUCT_PACKAGES += \
