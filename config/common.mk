@@ -114,7 +114,7 @@ PRODUCT_COPY_FILES += \
 
 # This is Exodus!
 PRODUCT_COPY_FILES += \
-    vendor/exodus/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
+    vendor/exodus/config/permissions/com.exodus.android.xml:system/etc/permissions/com.exodus.android.xml
 
 # Required Exodus packages
 PRODUCT_PACKAGES += \
