@@ -7,7 +7,8 @@ include vendor/exodus/config/exodus_audio.mk
 # Optional Exodus packages
 PRODUCT_PACKAGES += \
     SoundRecorder \
-    Screencast
+    Screencast \
+    ExodusWallpapers
 
 # Extra tools in Exodus
 PRODUCT_PACKAGES += \
