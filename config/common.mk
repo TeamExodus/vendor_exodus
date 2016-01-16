@@ -309,6 +309,9 @@ PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.exodus.display.version=$(EXODUS_DISPLAY_VERSION)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.android.display.version=$(PLATFORM_DISPLAY_VERSION)
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 -include vendor/cyngn/product.mk
