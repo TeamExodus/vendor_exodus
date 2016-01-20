@@ -2,3 +2,5 @@ add_lunch_combo exodus-shamu-user
 add_lunch_combo exodus_shamu-userdebug
 add_lunch_combo exodus_flounder-user
 add_lunch_combo exodus_flounder-userdebug
+add_lunch_combo exodus_hammerhead-user
+add_lunch_combo exodus_hammerhead-userdebug
