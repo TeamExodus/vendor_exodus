@@ -147,7 +147,8 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     AudioFX \
     toybox \
-    DeskClock
+    DeskClock \
+    LiveWallpapersPicker
 
 # Layers Backup
 PRODUCT_COPY_FILES += \
@@ -326,6 +327,8 @@ else
 WITH_DEXPREOPT := false
 endif
 
+# Include LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/exodus/overlay/dictionaries
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.exodus.display.version=$(EXODUS_DISPLAY_VERSION)
