@@ -134,7 +134,12 @@ PRODUCT_PACKAGES += \
 # Custom Exodus packages
 PRODUCT_PACKAGES += \
     Launcher3 \
-    AudioFX
+    AudioFX \
+    toybox
+
+# Layers Backup
+PRODUCT_COPY_FILES += \
+    vendor/exodus/prebuilt/common/addon.d/71-layers.sh:system/addon.d/71-layers.sh
 
 # CM Platform Library
 #PRODUCT_PACKAGES += \
