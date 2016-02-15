@@ -4,3 +4,5 @@ add_lunch_combo exodus_flounder-user
 add_lunch_combo exodus_flounder-userdebug
 add_lunch_combo exodus_hammerhead-user
 add_lunch_combo exodus_hammerhead-userdebug
+add_lunch_combo exodus_bullhead-user
+add_lunch_combo exodus_bullhead-userdebug
