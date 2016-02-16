@@ -120,7 +120,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Development \
     BluetoothExt \
-    Profiles
+    Profiles \
+    ExodusUpdater \
+    OpenDelta
 
 # Optional Exodus packages
 PRODUCT_PACKAGES += \
