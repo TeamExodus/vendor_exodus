@@ -307,6 +307,11 @@ ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
 endif
 endif
 
+# Enable dexpreopt to reduce no. of app optimization & time.
+ART_BUILD_TARGET_DEBUG := true
+ART_BUILD_HOST_DEBUG := true
+WITH_DEXPREOPT ?= true
+
 # by default, do not update the recovery with system updates
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
 

@@ -8,12 +8,6 @@ PRODUCT_PACKAGES += \
 # Include Exodus LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/exodus/overlay/dictionaries
 
-
-# Enable dexpreopt to reduce no. of app optimization & time.
-ART_BUILD_TARGET_DEBUG := true
-ART_BUILD_HOST_DEBUG := true
-WITH_DEXPREOPT ?= true
-
 # dex2oat which result in all user apps running in the interpreted mode
 PRODUCT_PROPERTY_OVERRIDES += \
      dalvik.vm.dex2oat-filter=interpret-only \

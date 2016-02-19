@@ -10,6 +10,10 @@ PRODUCT_PACKAGES += \
     Screencast \
     ExodusWallpapers
 
+# Required Exodus packages
+PRODUCT_PACKAGES += \
+    LatinIME
+
 # Extra tools in Exodus
 PRODUCT_PACKAGES += \
     7z \
