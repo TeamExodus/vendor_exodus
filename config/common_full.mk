@@ -12,7 +12,8 @@ PRODUCT_PACKAGES += \
 
 # Required Exodus packages
 PRODUCT_PACKAGES += \
-    LatinIME
+    LatinIME \
+    Camera2
 
 # Extra tools in Exodus
 PRODUCT_PACKAGES += \
