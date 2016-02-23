@@ -139,6 +139,7 @@ PRODUCT_PACKAGES += \
 
 # Custom Exodus packages
 PRODUCT_PACKAGES += \
+    Snap \
     Launcher3 \
     AudioFX \
     toybox
