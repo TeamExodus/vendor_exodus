@@ -116,6 +116,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/exodus/config/permissions/com.exodus.android.xml:system/etc/permissions/com.exodus.android.xml
 
+# Live lockscreen
+PRODUCT_COPY_FILES += \
+    vendor/exodus/config/permissions/org.cyanogenmod.livelockscreen.xml:system/etc/permissions/org.cyanogenmod.livelockscreen.xml
+
 # Required Exodus packages
 PRODUCT_PACKAGES += \
     Development \
