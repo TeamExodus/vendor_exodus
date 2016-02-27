@@ -315,7 +315,12 @@ endif
 # Enable dexpreopt to reduce no. of app optimization & time.
 ART_BUILD_TARGET_DEBUG := true
 ART_BUILD_HOST_DEBUG := true
+OS_TYPE := $(shell uname -s)
+ifeq ($(OS_TYPE),Darwin)
 WITH_DEXPREOPT ?= true
+else
+WITH_DEXPREOPT := false
+endif
 
 # by default, do not update the recovery with system updates
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
