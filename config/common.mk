@@ -316,7 +316,7 @@ endif
 ART_BUILD_TARGET_DEBUG := true
 ART_BUILD_HOST_DEBUG := true
 OS_TYPE := $(shell uname -s)
-ifeq ($(OS_TYPE),Darwin)
+ifneq ($(OS_TYPE),Darwin)
 WITH_DEXPREOPT ?= true
 else
 WITH_DEXPREOPT := false
