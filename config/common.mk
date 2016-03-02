@@ -142,7 +142,8 @@ PRODUCT_PACKAGES += \
     Snap \
     Launcher3 \
     AudioFX \
-    toybox
+    toybox \
+    DeskClock
 
 # Layers Backup
 PRODUCT_COPY_FILES += \
