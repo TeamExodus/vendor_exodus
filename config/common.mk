@@ -53,6 +53,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dateformat=MM-dd-yyyy \
     ro.com.android.dataroaming=false
 
+# Recovery: Make a non secure erase (by default) for faster wipe and less chance to damage the device
+BOARD_SUPPRESS_SECURE_ERASE := true
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
