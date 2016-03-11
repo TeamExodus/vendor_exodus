@@ -1,10 +1,10 @@
-add_lunch_combo exodus-shamu-user
-add_lunch_combo exodus_shamu-userdebug
-add_lunch_combo exodus_flo-user
-add_lunch_combo exodus_flo-userdebug
-add_lunch_combo exodus_flounder-user
-add_lunch_combo exodus_flounder-userdebug
-add_lunch_combo exodus_hammerhead-user
-add_lunch_combo exodus_hammerhead-userdebug
-add_lunch_combo exodus_bullhead-user
-add_lunch_combo exodus_bullhead-userdebug
+while read device
+do
+        echo -e "device='${device}'" >null
+        if [[ "$device" =~ \#.* ]];then
+           echo $device >/dev/null
+        else
+            add_lunch_combo exodus_$device-user
+            add_lunch_combo exodus_$device-userdebug
+        fi
+done <vendor/exodus/devices/exodus-build-targets
