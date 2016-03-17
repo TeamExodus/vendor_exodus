@@ -20,6 +20,7 @@ PRODUCT_PACKAGES += \
     7z \
     lib7z \
     bash \
+    busybox \
     bzip2 \
     curl \
     powertop \
