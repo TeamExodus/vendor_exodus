@@ -222,7 +222,6 @@ PRODUCT_PACKAGES += \
 endif
 
 
-
 PRODUCT_PACKAGE_OVERLAYS += vendor/exodus/overlay/common
 
 PRODUCT_VERSION_MAJOR = 6
@@ -327,9 +326,6 @@ else
 WITH_DEXPREOPT := false
 endif
 
-# by default, do not update the recovery with system updates
-PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
-
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.exodus.display.version=$(EXODUS_DISPLAY_VERSION)
@@ -338,7 +334,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.android.display.version=$(PLATFORM_DISPLAY_VERSION)
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
-
--include vendor/cyngn/product.mk
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)
