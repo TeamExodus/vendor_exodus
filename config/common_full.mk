@@ -25,7 +25,6 @@ PRODUCT_PACKAGES += \
     curl \
     powertop \
     unrar \
-    unzip \
     vim \
     wget \
     zip
