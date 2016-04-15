@@ -350,6 +350,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.android.display.version=$(PLATFORM_DISPLAY_VERSION)
 
+ifeq ($(TARGET_USES_EXODUS_BSP),true)
+-include vendor/exodus/proprietary/common/config/device-vendor.mk
+endif
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)
