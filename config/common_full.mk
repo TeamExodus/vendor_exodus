@@ -8,7 +8,17 @@ include vendor/exodus/config/exodus_audio.mk
 PRODUCT_PACKAGES += \
     SoundRecorder \
     Screencast \
-    ExodusWallpapers
+
+# packages for Wallpaper and livewallpaper on desktop options
+PRODUCT_PACKAGES += \
+    ExodusWallpapers \
+    LiveWallpapers \
+    Galaxy4 \
+    HoloSpiralWallpaper \
+    LiveWallpapersPicker \
+    MagicSmokeWallpapers \
+    NoiseField \
+
 
 # Required Exodus packages
 PRODUCT_PACKAGES += \
