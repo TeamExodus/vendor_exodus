@@ -166,6 +166,10 @@ PRODUCT_PACKAGES += \
     org.cyanogenmod.hardware \
     org.cyanogenmod.hardware.xml
 
+# Exchange support
+PRODUCT_PACKAGES += \
+    Exchange2
+
 # Extra tools in Exodus
 PRODUCT_PACKAGES += \
     libsepol \
