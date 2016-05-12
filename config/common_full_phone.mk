@@ -8,12 +8,6 @@ PRODUCT_PACKAGES += \
 # Include Exodus LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/exodus/overlay/dictionaries
 
-# turn off and see if there is heatup while optimizaiton and performance improvement in apps behavior
-# dex2oat which result in all user apps running in the interpreted mode
-# PRODUCT_PROPERTY_OVERRIDES += \
-#     dalvik.vm.dex2oat-filter=interpret-only \
-#     dalvik.vm.image-dex2oat-filter=speed
-
 # Default notification/alarm/ringtone sounds
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.notification_sound=Argon.ogg \
