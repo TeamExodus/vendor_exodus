@@ -326,8 +326,6 @@ endif
 OS_TYPE := $(shell uname -s)
 ifneq ($(OS_TYPE),Darwin)
     WITH_DEXPREOPT ?= true
-    ART_BUILD_TARGET_DEBUG := true
-    ART_BUILD_HOST_DEBUG := true
 else
     WITH_DEXPREOPT := false
 endif
