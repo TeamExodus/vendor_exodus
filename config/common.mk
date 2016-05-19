@@ -244,7 +244,7 @@ ifndef EXODUS_BUILDTYPE
     endif
 endif
 
-# Filter out random types, so it'll reset to UNOFFICIAL
+# Filter out random types, so it'll reset to PRIVATE
 ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(EXODUS_BUILDTYPE)),)
     EXODUS_BUILDTYPE :=
 endif
@@ -271,12 +271,12 @@ ifdef EXODUS_BUILDTYPE
         endif
     endif
 else
-    # If EXODUS_BUILDTYPE is not defined, set to UNOFFICIAL
-    EXODUS_BUILDTYPE := UNOFFICIAL
+    # If EXODUS_BUILDTYPE is not defined, set to PRIVATE
+    EXODUS_BUILDTYPE := PRIVATE
     EXODUS_EXTRAVERSION :=
 endif
 
-ifeq ($(EXODUS_BUILDTYPE), UNOFFICIAL)
+ifeq ($(EXODUS_BUILDTYPE), PRIVATE)
     ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
         EXODUS_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
     endif
@@ -305,7 +305,7 @@ EXODUS_DISPLAY_VERSION := $(EXODUS_VERSION)
 
 ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),)
 ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
-  ifneq ($(EXODUS_BUILDTYPE), UNOFFICIAL)
+  ifneq ($(EXODUS_BUILDTYPE), PRIVATE)
     ifndef TARGET_VENDOR_RELEASE_BUILD_ID
       ifneq ($(EXODUS_EXTRAVERSION),)
         # Remove leading dash from EXODUS_EXTRAVERSION
