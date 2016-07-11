@@ -130,8 +130,7 @@ PRODUCT_PACKAGES += \
     BluetoothExt \
     Profiles \
     ExodusUpdater \
-    OpenDelta \
-    DeviceProfiles
+    OpenDelta
 
 # Optional Exodus packages
 PRODUCT_PACKAGES += \
