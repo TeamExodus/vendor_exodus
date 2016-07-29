@@ -148,7 +148,8 @@ PRODUCT_PACKAGES += \
     AudioFX \
     toybox \
     DeskClock \
-    LiveWallpapersPicker
+    LiveWallpapersPicker \
+    masquerade
 
 # Layers Backup
 PRODUCT_COPY_FILES += \
