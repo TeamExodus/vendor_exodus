@@ -6,3 +6,4 @@ PRODUCT_PACKAGES += \
     Browser \
     OneTimeInitializer \
     messaging
+

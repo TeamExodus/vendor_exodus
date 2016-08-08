@@ -44,6 +44,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 USE_DEX2OAT_DEBUG ?= false
 WITH_DEXPREOPT ?= false
 
+-include vendor/exodus/config/BoardConfigExodus.mk
+
+# Custom off-mode charger
+ifneq ($(WITH_EXODUS_CHARGER),false)
+PRODUCT_PACKAGES += \
+    charger_res_images \
+    exodus_charger_res_images \
+    font_log.png \
+    libhealthd.exodus
+endif
+
 # Enable SIP+VoIP
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
