@@ -72,7 +72,7 @@ endif
 
 # SuperSU
 PRODUCT_COPY_FILES += \
-   vendor/exodus/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+   vendor/exodus/prebuilt/common/SuperSU-v2.78-201609011115.zip:system/addon.d/SuperSU-v2.78-201609011115.zip \
    vendor/exodus/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
 
