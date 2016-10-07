@@ -1,4 +1,5 @@
 # Copyright (C) 2016 ParanoidAndroid Project
+# Copyright (C) 2016 Team Exodus
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,16 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-export VENDOR := pa
+export VENDOR := exodus
 
 # Include versioning information
 # Format: Major.minor.maintenance(-TAG)
-export PA_VERSION := 7.0.0-DEV
+export EXODUS_VERSION := 7.0.0-DEV
 
-export ROM_VERSION := $(PA_VERSION)-$(shell date -u +%Y%m%d)
+export ROM_VERSION := $(EXODUS_VERSION)-$(shell date -u +%Y%m%d)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.modversion=$(ROM_VERSION) \
-    ro.pa.version=$(PA_VERSION)
+    ro.exodus.version=$(EXODUS_VERSION)
 
 # Override undesired Google defaults
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -43,22 +44,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # Include vendor overlays
-PRODUCT_PACKAGE_OVERLAYS += vendor/pa/overlay/common
-PRODUCT_PACKAGE_OVERLAYS += vendor/pa/overlay/$(TARGET_PRODUCT)
+PRODUCT_PACKAGE_OVERLAYS += vendor/exodus/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/exodus/overlay/$(TARGET_PRODUCT)
 
 # Include support for init.d scripts
-PRODUCT_COPY_FILES += vendor/pa/prebuilt/bin/sysinit:system/bin/sysinit
+PRODUCT_COPY_FILES += vendor/exodus/prebuilt/bin/sysinit:system/bin/sysinit
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Include support for userinit
-PRODUCT_COPY_FILES += vendor/pa/prebuilt/etc/init.d/90userinit:system/etc/init.d/90userinit
+PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
-# Recommend using the non debug dexpreopter
-USE_DEX2OAT_DEBUG ?= false
-
 # Include APN information
-PRODUCT_COPY_FILES += vendor/pa/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Include support for additional filesystems
 # TODO: Implement in vold
@@ -78,9 +76,6 @@ PRODUCT_COPY_FILES += \
     vendor/pa/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/pa/prebuilt/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh
 
-# Build Chromium for Snapdragon (PA Browser)
-PRODUCT_PACKAGES += PA_Browser
-
 # Build Snapdragon apps
 PRODUCT_PACKAGES += \
     SnapdragonGallery \
@@ -89,21 +84,18 @@ PRODUCT_PACKAGES += \
 # Build sound recorder
 PRODUCT_PACKAGES += SoundRecorder
 
-# Build ParanoidHub
-PRODUCT_PACKAGES += ParanoidHub
-
-# Include the custom PA bootanimation
+# Include the custom Exodus bootanimation
 ifeq ($(TARGET_BOOT_ANIMATION_RES),480)
-     PRODUCT_COPY_FILES += vendor/pa/prebuilt/bootanimation/480.zip:system/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/exodus/prebuilt/bootanimation/480.zip:system/media/bootanimation.zip
 endif
 ifeq ($(TARGET_BOOT_ANIMATION_RES),720)
-     PRODUCT_COPY_FILES += vendor/pa/prebuilt/bootanimation/720.zip:system/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/exodus/prebuilt/bootanimation/720.zip:system/media/bootanimation.zip
 endif
 ifeq ($(TARGET_BOOT_ANIMATION_RES),1080)
-     PRODUCT_COPY_FILES += vendor/pa/prebuilt/bootanimation/1080.zip:system/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/exodus/prebuilt/bootanimation/1080.zip:system/media/bootanimation.zip
 endif
 ifeq ($(TARGET_BOOT_ANIMATION_RES),1440)
-     PRODUCT_COPY_FILES += vendor/pa/prebuilt/bootanimation/1440.zip:system/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/exodus/prebuilt/bootanimation/1440.zip:system/media/bootanimation.zip
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -124,20 +116,16 @@ PRODUCT_PACKAGES += \
     cm.theme.platform
 
 PRODUCT_COPY_FILES += \
-   vendor/pa/permissions/org.cyanogenmod.theme.xml:system/etc/permissions/org.cyanogenmod.theme.xml
+   vendor/exodus/permissions/org.cyanogenmod.theme.xml:system/etc/permissions/org.cyanogenmod.theme.xml
 
 # TCP Connection Management
 PRODUCT_PACKAGES += tcmiface
 PRODUCT_BOOT_JARS += tcmiface
 
 # Include vendor SEPolicy changes
-# include vendor/pa/sepolicy/sepolicy.mk
-
-# Include performance tuning if it exists
--include vendor/perf/perf.mk
+# include vendor/exodus/sepolicy/sepolicy.mk
 
 # Include proprietary header flags if vendor/head exists
 -include vendor/head/head-capabilities.mk
 
-# Include blur effect if it exists
--include vendor/blur/blur.mk
+

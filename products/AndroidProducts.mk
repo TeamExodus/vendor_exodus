@@ -1,4 +1,4 @@
-# Copyright (C) 2016 ParanoidAndroid Project
+# Copyright (C) 2016 Team Exodus
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,25 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-# CAF
-    PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/bacon/pa_bacon.mk \
-    $(LOCAL_DIR)/oneplus2/pa_oneplus2.mk \
-    $(LOCAL_DIR)/oneplus3/pa_oneplus3.mk \
-    $(LOCAL_DIR)/onyx/pa_onyx.mk \
-    $(LOCAL_DIR)/robin/pa_robin.mk
-
-# Samsung Exynos
-    PRODUCT_MAKEFILES += $(LOCAL_DIR)/gts210ltexx/pa_gts210ltexx.mk
-
-# LG G Platform
-    PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/d802/pa_d802.mk \
-    $(LOCAL_DIR)/d850/pa_d850.mk \
-    $(LOCAL_DIR)/d851/pa_d851.mk \
-    $(LOCAL_DIR)/d852/pa_d852.mk \
-    $(LOCAL_DIR)/d855/pa_d855.mk \
-    $(LOCAL_DIR)/ls990/pa_ls990.mk \
-    $(LOCAL_DIR)/vs985/pa_vs985.mk
-
+#    PRODUCT_MAKEFILES += \
