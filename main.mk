@@ -72,9 +72,9 @@ PRODUCT_PACKAGES += \
 
 # Include support for GApps backup
 PRODUCT_COPY_FILES += \
-    vendor/pa/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/pa/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/pa/prebuilt/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh
+    vendor/exodus/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/exodus/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/exodus/prebuilt/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh
 
 # Build Snapdragon apps
 PRODUCT_PACKAGES += \
@@ -107,25 +107,8 @@ else
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 endif
 
-# Theme engine
-PRODUCT_PACKAGES += \
-    aapt \
-    ThemeChooser \
-    ThemesProvider \
-    cm.theme.platform-res \
-    cm.theme.platform
-
-PRODUCT_COPY_FILES += \
-   vendor/exodus/permissions/org.cyanogenmod.theme.xml:system/etc/permissions/org.cyanogenmod.theme.xml
-
-# TCP Connection Management
-PRODUCT_PACKAGES += tcmiface
-PRODUCT_BOOT_JARS += tcmiface
-
 # Include vendor SEPolicy changes
 # include vendor/exodus/sepolicy/sepolicy.mk
 
 # Include proprietary header flags if vendor/head exists
 -include vendor/head/head-capabilities.mk
-
-
