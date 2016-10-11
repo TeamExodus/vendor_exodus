@@ -82,9 +82,9 @@ PRODUCT_PACKAGES += \
 
 # Include support for GApps backup
 PRODUCT_COPY_FILES += \
-    vendor/pa/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/pa/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/pa/prebuilt/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh
+    vendor/exodus/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/exodus/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/exodus/prebuilt/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh
 
 # Build Snapdragon apps
 PRODUCT_PACKAGES += \
