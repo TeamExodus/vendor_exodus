@@ -324,11 +324,11 @@ endif
 
 # Enable dexpreopt to reduce no. of app optimization & time.
 OS_TYPE := $(shell uname -s)
-ifneq ($(OS_TYPE),Darwin)
-    WITH_DEXPREOPT ?= true
-else
+#ifneq ($(OS_TYPE),Darwin)
+#    WITH_DEXPREOPT ?= true
+#else
     WITH_DEXPREOPT := false
-endif
+#endif
 
 # Overlays & Include LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += \
