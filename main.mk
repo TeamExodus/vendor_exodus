@@ -89,7 +89,12 @@ PRODUCT_COPY_FILES += \
 # Build Snapdragon apps
 PRODUCT_PACKAGES += \
     SnapdragonGallery \
-    SnapdragonMusic
+    SnapdragonMusic \
+    SnapdragonCamera
+
+# TCP Connection Management
+PRODUCT_PACKAGES += tcmiface
+PRODUCT_BOOT_JARS += tcmiface
 
 # Build sound recorder
 PRODUCT_PACKAGES += SoundRecorder
