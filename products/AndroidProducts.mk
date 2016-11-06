@@ -12,4 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#    PRODUCT_MAKEFILES += \
+#CAF
+#Xiaomi Kenzo (Redmi Note 3 Snapdragon variant)
+PRODUCT_MAKEFILES += \
+    device/xiaomi/kenzo/exodus_kenzo.mk
