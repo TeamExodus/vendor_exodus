@@ -80,11 +80,20 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     SnapdragonGallery \
     SnapdragonMusic \
-    SnapdragonCamera
+    SnapdragonCamera \
+    DocumentsUI
 
 # TCP Connection Management
 PRODUCT_PACKAGES += tcmiface
 PRODUCT_BOOT_JARS += tcmiface
+
+# Required Exodus packages
+PRODUCT_PACKAGES += \
+    LatinIME
+
+# Include Exodus LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += \
+    vendor/exodus/overlay/dictionaries
 
 # Build sound recorder
 PRODUCT_PACKAGES += SoundRecorder
