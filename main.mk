@@ -140,10 +140,6 @@ else
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 endif
 
-# TCP Connection Management
-PRODUCT_PACKAGES += tcmiface
-PRODUCT_BOOT_JARS += tcmiface
-
 # RCS Service
 PRODUCT_PACKAGES += \
     rcs_service_aidl \
@@ -152,8 +148,11 @@ PRODUCT_PACKAGES += \
     rcs_service_api \
     rcs_service_api.xml
 
-# Include vendor SEPolicy changes
+# init.d support
+PRODUCT_COPY_FILES += \
+    vendor/exodus/prebuilt/etc/init.exodus.rc:root/init.exodus.rc
 
+# Include vendor SEPolicy changes
 include vendor/exodus/sepolicy/sepolicy.mk
 
 # Include performance tuning if it exists
