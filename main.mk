@@ -124,6 +124,11 @@ else
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 endif
 
+
+# init.d support
+PRODUCT_COPY_FILES += \
+    vendor/exodus/prebuilt/etc/init.exodus.rc:root/init.exodus.rc
+
 # Include vendor SEPolicy changes
 # include vendor/exodus/sepolicy/sepolicy.mk
 
