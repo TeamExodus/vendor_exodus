@@ -69,7 +69,7 @@ USE_DEX2OAT_DEBUG ?= false
 PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Include support for preconfigured permissions
-PRODUCT_COPY_FILES += vendor/pa/prebuilt/etc/default-permissions/pa-permissions.xml:system/etc/default-permissions/pa-permissions.xml
+PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/default-permissions/exodus-permissions.xml:system/etc/default-permissions/exodus-permissions.xml
 
 # Include support for additional filesystems
 # TODO: Implement in vold
@@ -151,9 +151,6 @@ PRODUCT_PACKAGES += \
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/exodus/prebuilt/etc/init.exodus.rc:root/init.exodus.rc
-
-# Include vendor SEPolicy changes
-include vendor/exodus/sepolicy/sepolicy.mk
 
 # Include performance tuning if it exists
 -include vendor/perf/perf.mk

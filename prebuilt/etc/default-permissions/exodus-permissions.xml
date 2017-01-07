@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<!-- Copyright (C) 2016 Paranoid Android
+<!-- Copyright (C) 2017 Exodus Android
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -15,16 +15,9 @@
 -->
 <exceptions>
    <!--
-   The exceptions below have been set by the Paranoid Android project
+   The exceptions below have been set by the Exodus Android project
    -->
-	<!-- Paranoid Hub -->
-	<exception
-            package="com.paranoid.paranoidhub">
-		<!-- Storage -->
-		<permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="true"/>
-		<permission name="android.permission.WRITE_EXTERNAL_STORAGE" fixed="true"/>
-	</exception>
-	<!-- Paranoid Camera -->
+	<!-- Exodus Camera -->
 	<exception
             package="org.codeaurora.snapcam">
 		<!-- Camera -->
@@ -35,14 +28,14 @@
 		<permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="false"/>
 		<permission name="android.permission.WRITE_EXTERNAL_STORAGE" fixed="false"/>
 	</exception>
-	<!-- Paranoid Gallery -->
+	<!-- Exodus Gallery -->
 	<exception
             package="org.codeaurora.gallery">
 		<!-- Storage -->
 		<permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="false"/>
 		<permission name="android.permission.WRITE_EXTERNAL_STORAGE" fixed="false"/>
 	</exception>
-	<!-- Paranoid Messaging -->
+	<!-- Exodus Messaging -->
 	<exception
             package="com.android.mms">
 		<!-- Contacts -->
@@ -61,7 +54,7 @@
 		<permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="false"/>
 		<permission name="android.permission.WRITE_EXTERNAL_STORAGE" fixed="false"/>
 	</exception>
-	<!-- Paranoid Music -->
+	<!-- Exodus Music -->
 	<exception
             package="com.android.music">
 		<!-- Phone -->
