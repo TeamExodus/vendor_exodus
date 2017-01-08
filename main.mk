@@ -17,12 +17,14 @@ export VENDOR := exodus
 
 # Include versioning information
 # Format: Major.minor.maintenance(-TAG)
-export EXODUS_VERSION := 7.1.0-DEV
+export EXODUS_VERSION := 7.1-BETA
 
 export ROM_VERSION := $(EXODUS_VERSION)-$(shell date -u +%Y%m%d)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.modversion=$(ROM_VERSION) \
     ro.exodus.version=$(EXODUS_VERSION)
+
+WITH_DEXPREOPT ?= false
 
 # Override undesired Google defaults
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -94,17 +96,18 @@ PRODUCT_PACKAGES += \
     SnapdragonGallery \
     SnapdragonMusic \
     SnapdragonCamera \
-    DocumentsUI
+    DocumentsUI \
+    WallpaperPicker
 
 # TCP Connection Management
 PRODUCT_PACKAGES += tcmiface
 PRODUCT_BOOT_JARS += tcmiface
 
-# Required Exodus packages
+# LatinIME input service keypad packages
 PRODUCT_PACKAGES += \
     LatinIME
 
-# Include Exodus LatinIME dictionaries
+# Include Exodus LatinIME dictionaries for swypelib support
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/exodus/overlay/dictionaries
 
