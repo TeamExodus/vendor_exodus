@@ -64,6 +64,9 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
+# init.d support
+PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/init.exodus.rc:root/init.exodus.rc
+
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
 
@@ -169,10 +172,6 @@ PRODUCT_PACKAGES += \
     rcs_service_aidl_static \
     rcs_service_api \
     rcs_service_api.xml
-
-# init.d support
-PRODUCT_COPY_FILES += \
-    vendor/exodus/prebuilt/etc/init.exodus.rc:root/init.exodus.rc
 
 # Bluetooth Audio (A2DP)
 PRODUCT_PACKAGES += libbthost_if
