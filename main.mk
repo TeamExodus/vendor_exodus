@@ -170,6 +170,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/exodus/prebuilt/etc/init.exodus.rc:root/init.exodus.rc
 
+# Bluetooth Audio (A2DP)
+PRODUCT_PACKAGES += libbthost_if
+
+# Include vendor SEPolicy changes
+include vendor/exodus/sepolicy/sepolicy.mk
+
 # Include performance tuning if it exists
 -include vendor/perf/perf.mk
 
