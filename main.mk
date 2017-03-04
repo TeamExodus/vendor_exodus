@@ -1,5 +1,9 @@
+<<<<<<< 69a744204f5ee7137548b6086ef44b3df4f0b2e4
 # Copyright (C) 2016 ParanoidAndroid Project
 # Copyright (C) 2016 Team Exodus
+=======
+# Copyright (C) 2013-2017 Paranoid Android
+>>>>>>> pa: Slightly clean up the makefile
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -68,7 +72,7 @@ endif
 PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/init.exodus.rc:root/init.exodus.rc
 
 # Recommend using the non debug dexpreopter
-USE_DEX2OAT_DEBUG ?= false
+USE_DEX2OAT_DEBUG := false
 
 # Include APN information
 PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
@@ -77,7 +81,6 @@ PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/apns-conf.xml:system/etc/apns-c
 PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/default-permissions/exodus-permissions.xml:system/etc/default-permissions/exodus-permissions.xml
 
 # Include support for additional filesystems
-# TODO: Implement in vold
 PRODUCT_PACKAGES += \
     e2fsck \
     mke2fs \
@@ -178,9 +181,6 @@ PRODUCT_PACKAGES += libbthost_if
 
 # Include vendor SEPolicy changes
 #include vendor/exodus/sepolicy/sepolicy.mk
-
-# Include performance tuning if it exists
--include vendor/perf/perf.mk
 
 # Include proprietary header flags if vendor/head exists
 -include vendor/head/head-capabilities.mk
