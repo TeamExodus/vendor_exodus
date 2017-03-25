@@ -174,7 +174,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += libbthost_if
 
 # Include vendor SEPolicy changes
-include vendor/exodus/sepolicy/sepolicy.mk
+#include vendor/exodus/sepolicy/sepolicy.mk
 
 # Include performance tuning if it exists
 -include vendor/perf/perf.mk
