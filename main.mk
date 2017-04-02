@@ -99,6 +99,10 @@ PRODUCT_PACKAGES += \
     DocumentsUI \
     WallpaperPicker \
 
+#Substratum helper app
+PRODUCT_PACKAGES += \
+    ThemeInterfacer \
+
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
     libffmpeg_extractor \
