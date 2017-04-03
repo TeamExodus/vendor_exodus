@@ -1,9 +1,4 @@
-<<<<<<< 69a744204f5ee7137548b6086ef44b3df4f0b2e4
-# Copyright (C) 2016 ParanoidAndroid Project
 # Copyright (C) 2016 Team Exodus
-=======
-# Copyright (C) 2013-2017 Paranoid Android
->>>>>>> pa: Slightly clean up the makefile
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
