@@ -23,8 +23,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.modversion=$(ROM_VERSION) \
     ro.exodus.version=$(EXODUS_VERSION)
 
-WITH_DEXPREOPT ?= false
-
 # Override undesired Google defaults
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
@@ -44,6 +42,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
+WITH_DEXPREOPT ?= false
 
 # Enable SIP+VoIP
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
@@ -65,9 +64,6 @@ endif
 
 # init.d support
 PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/init.exodus.rc:root/init.exodus.rc
-
-# Recommend using the non debug dexpreopter
-USE_DEX2OAT_DEBUG := false
 
 # Include APN information
 PRODUCT_COPY_FILES += vendor/exodus/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
