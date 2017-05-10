@@ -1,2 +1,1 @@
-# Allow Gallery3D to crop user images
-allow platform_app system_app_data_file:file rw_file_perms;
+allow platform_app nfc_service:service_manager find;
