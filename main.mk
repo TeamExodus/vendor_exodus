@@ -104,6 +104,7 @@ PRODUCT_PACKAGES += \
     SnapdragonGallery \
     SnapdragonMusic \
     SnapdragonCamera \
+    SnapdragonLauncher \
     DocumentsUI \
     WallpaperPicker \
 
